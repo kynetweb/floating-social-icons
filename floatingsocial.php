@@ -131,30 +131,17 @@ class MySettingsPage
       
 		//floating_value
         if( isset( $input['facebook'] ) )
-            $new_input['facebook'] = sanitize_text_field( $input['facebook'] );
-		
+            $new_input['facebook'] = sanitize_text_field( $input['facebook'] );		
         if( isset( $input['linkedin'] ) )
             $new_input['linkedin'] = sanitize_text_field( $input['linkedin'] );
         if( isset( $input['pinterest'] ) )
             $new_input['pinterest'] = sanitize_text_field( $input['pinterest'] );
-         if( isset( $input['instagram'] ) )
-            $new_input['instagram'] = sanitize_text_field( $input['instagram'] );
 		if( isset( $input['twitter'] ) )
             $new_input['twitter'] = sanitize_text_field( $input['twitter'] ); 
 		if( isset( $input['youtube'] ) )
             $new_input['youtube'] = sanitize_text_field( $input['youtube'] );
 		 if( isset( $input['stumbleupon'] ) )
             $new_input['stumbleupon'] = sanitize_text_field( $input['stumbleupon'] ); 
-		if( isset( $input['tumblr'] ) )
-            $new_input['tumblr'] = sanitize_text_field( $input['tumblr'] );
-		if( isset( $input['rss'] ) )
-            $new_input['rss'] = sanitize_text_field( $input['rss'] );
-		if( isset( $input['flickr'] ) )
-            $new_input['flickr'] = sanitize_text_field( $input['flickr'] );
-		if( isset( $input['google_plus'] ) )
-            $new_input['google_plus'] = sanitize_text_field( $input['google_plus'] );
-		if( isset( $input['vine'] ) )
-            $new_input['vine'] = sanitize_text_field( $input['vine'] );
 			 return $new_input;
     }
 
@@ -242,43 +229,7 @@ class MySettingsPage
             isset( $this->options['stumbleupon'] ) ? esc_attr( $this->options['stumbleupon']) : ''
         );
     }
-	public function tumblr_callback()
-    {
-        printf(
-            '<input type="text" id="tumblr" name="my_option_name[tumblr]" value="%s" />',
-            isset( $this->options['tumblr'] ) ? esc_attr( $this->options['tumblr']) : ''
-        );
-    }
 	
-	
-	public function rss_callback()
-    {
-        printf(
-            '<input type="text" id="rss" name="my_option_name[rss]" value="%s" />',
-            isset( $this->options['rss'] ) ? esc_attr( $this->options['rss']) : ''
-        );
-    }
-	public function flickr_callback()
-    {
-        printf(
-            '<input type="text" id="flickr" name="my_option_name[flickr]" value="%s" />',
-            isset( $this->options['flickr'] ) ? esc_attr( $this->options['flickr']) : ''
-        );
-    }
-	public function google_plus_callback()
-    {
-        printf(
-            '<input type="text" id="google_plus" name="my_option_name[google_plus]" value="%s" />',
-            isset( $this->options['google_plus'] ) ? esc_attr( $this->options['google_plus']) : ''
-        );
-    }
-	public function vine_callback()
-    {
-        printf(
-            '<input type="text" id="vine" name="my_option_name[vine]" value="%s" />',
-            isset( $this->options['vine'] ) ? esc_attr( $this->options['vine']) : ''
-        );
-    }
 		
 }
 	// Add Shortcode
