@@ -245,12 +245,12 @@ class MySettingsPage
 		$insta_value = $options['instagram'];
 		
 	 ?>
-		<a href="<?php echo $favebook__value?>"><img src='http://localhost/wordpress/wp-content/plugins/floatingsocial/image/fb.png' id='fb'></a>
-		<a href="<?php echo $linkedin_value?>"><img src='http://localhost/wordpress/wp-content/plugins/floatingsocial/image/in.png' id='link'></a>
-		<a href="<?php echo $pintrest_value?>"><img src='http://localhost/wordpress/wp-content/plugins/floatingsocial/image/pinit.png' id='pin'></a>
-		<a href="<?php echo $twitter_value?>"><img src='http://localhost/wordpress/wp-content/plugins/floatingsocial/image/tw.png' id='twitr'></a>
-		<a href="<?php echo $youtube_value?>"><img src='http://localhost/wordpress/wp-content/plugins/floatingsocial/image/youtube.png' id='youtube'></a>
-		<a href="<?php echo $stumble_value?>"><img src='http://localhost/wordpress/wp-content/plugins/floatingsocial/image/stumbleupon.png' id='stumbleupon'></a>
+		<a href="<?php echo $favebook__value?>"><img src= '<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/fb.png'; ?>' id='fb'></a>
+		<a href="<?php echo $linkedin_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/in.png'; ?>' id='link'></a>
+		<a href="<?php echo $pintrest_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/pinit.png'; ?>' id='pin'></a>
+		<a href="<?php echo $twitter_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tw.png'; ?>' id='twitr'></a>
+		<a href="<?php echo $youtube_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/youtube.png'; ?>' id='youtube'></a>
+		<a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/stumbleupon.png'; ?>' id='stumbleupon'></a>
 		<?php
 		echo "</div>";
 
@@ -262,12 +262,12 @@ class MySettingsPage
 
 // add css file for admin-dashboard pages
 	function load_custom_wp_admin_style() {
-			wp_register_style( 'custom_wp_admin_css', 'http://localhost/wordpress/wp-content/plugins/floatingsocial/css/admin-style.css', false, '1.0.0' );
+			wp_register_style( 'custom_wp_admin_css',  plugins_url( 'css/admin-style.css', __FILE__ ), false, '1.0.0' );
 			wp_enqueue_style( 'custom_wp_admin_css' );
 	}
 	add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 	function themeslug_enqueue_style() {
-		wp_enqueue_style( 'core', 'http://localhost/wordpress/wp-content/plugins/floatingsocial/css/plugin_style.css', false ); 
+		wp_enqueue_style( 'core', plugins_url( 'css/plugin_style.css', __FILE__ ), false ); 
 	}
 	add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_style' ); //'wp_enqueue_scripts' is used for enqueuing both scripts and styles.
 
