@@ -1,0 +1,15 @@
+
+
+.option {
+    width: 4%;
+    /* float: left; */
+    top: 24%;
+    position: fixed;
+	left: 1px;
+}
+
+.option a {
+    overflow: hidden;
+    display: block;
+    height: 30px;
+}

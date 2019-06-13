@@ -1,0 +1,11 @@
+//css file of floating social share plugin
+
+
+
+
+table.form-table tr {
+    float: left;
+}
+tr {
+    float: left !important;
+}
