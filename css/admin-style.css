@@ -8,4 +8,5 @@ table.form-table tr {
 }
 tr {
     float: left !important;
+	width: 50% !important;
 }

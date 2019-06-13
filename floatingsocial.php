@@ -7,39 +7,45 @@
   */
 
 //This is for setting link in the plugin activation setting
-class MySettingsPage
+if ( ! class_exists( 'FloatingSocialPage' ) ) 
+{
+    
+class FloatingSocialPage
 {			
-						/**
+			
+				/**
 				 * Holds the values to be used in the fields callbacks
 				 */
 				private $options;			
 				/**
 				 * Start up
 				 */
+				 
+				 
 				public function __construct()
 				{
-					add_action( 'admin_menu', array( $this, 'add_plugin_page' ) ); //extra sub menu
-					add_action( 'admin_init', array( $this, 'page_init' ) ); /// user accesses the admin area
+					add_action( 'admin_menu', array( $this, 'floatingsocial_page' ) ); //extra sub menu
+					add_action( 'admin_init', array( $this, 'floatingsocial_init' ) ); /// user accesses the admin area
 				}			
 				/**
 				 * Add options page
 				 */
-				public function add_plugin_page()
+				public function floatingsocial_page()
 				{
 					// This page will be under "Settings menu"
-					add_options_page(
+					add_menu_page(
 						'Settings Admin', //title 
-						'floating social', //setting menu name
+						'Floating Social', //setting menu name
 						'manage_options',  //capability 
 						'my-setting-admin',  //page name
-						array( $this, 'create_admin_page' ) //callback -- The function to be called to output the content for this page.
+						array( $this, 'floatingsocial_admin_page' ) //callback -- The function to be called to output the content for this page.
 						
 					);
 				}			
 				/**
 				 * Options page callback
 				 */
-				public function create_admin_page()
+				public function floatingsocial_admin_page()
 				{
 					// Set class property
 					$this->options = get_option( 'my_option_name' ); // Retrieves an option value based on an option name.
@@ -60,7 +66,7 @@ class MySettingsPage
     /**
      * Register and add settings
      */
-    public function page_init()
+    public function floatingsocial_init()
     {        //Register a setting and its data
         register_setting(
             'my_option_group', // Option group
@@ -130,9 +136,9 @@ class MySettingsPage
     {
       
 		//floating_value
-        if( isset( $input['facebook'] ) )
-            $new_input['facebook'] = sanitize_text_field( $input['facebook'] );		
-        if( isset( $input['linkedin'] ) )
+	if( isset( $input['facebook'] ) )
+		$new_input['facebook'] = sanitize_text_field( $input['facebook'] );	
+		 if( isset( $input['linkedin'] ) )
             $new_input['linkedin'] = sanitize_text_field( $input['linkedin'] );
         if( isset( $input['pinterest'] ) )
             $new_input['pinterest'] = sanitize_text_field( $input['pinterest'] );
@@ -232,8 +238,11 @@ class MySettingsPage
 	
 		
 }
+
+} //end if exist
+
 	// Add Shortcode
-	function custom_shortcode() {
+	function floatingsocial_shortcode() {
 		echo "<div class='option'>";		
 		$options = get_option('my_option_name');		
 		$favebook__value = $options['facebook'];
@@ -242,34 +251,63 @@ class MySettingsPage
 		$twitter_value = $options['twitter'];
 		$youtube_value = $options['youtube'];
 		$stumble_value = $options['stumbleupon'];
-		$insta_value = $options['instagram'];
 		
+	if($favebook__value == true)
+	{	
 	 ?>
+     
 		<a href="<?php echo $favebook__value?>"><img src= '<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/fb.png'; ?>' id='fb'></a>
-		<a href="<?php echo $linkedin_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/in.png'; ?>' id='link'></a>
-		<a href="<?php echo $pintrest_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/pinit.png'; ?>' id='pin'></a>
-		<a href="<?php echo $twitter_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tw.png'; ?>' id='twitr'></a>
-		<a href="<?php echo $youtube_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/youtube.png'; ?>' id='youtube'></a>
-		<a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/stumbleupon.png'; ?>' id='stumbleupon'></a>
+		<?php }
+		if($linkedin_value == true)
+	{	
+		?>
+        <a href="<?php echo $linkedin_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/in.png'; ?>' id='link'></a>
+		
+        <?php } 
+		if($pintrest_value == true) 
+		{
+		?>
+        
+        <a href="<?php echo $pintrest_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/pinit.png'; ?>' id='pin'></a>
+		<?php }
+			if($twitter_value == true) 
+		{
+		?>
+        <a href="<?php echo $twitter_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tw.png'; ?>' id='twitr'></a>
 		<?php
+		}
+		if($youtube_value == true) 
+		{
+		?>
+       
+       <a href="<?php echo $youtube_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/youtube.png'; ?>' id='youtube'></a>
+		<?php
+		}
+		if($stumble_value == true) 
+		{
+		?>
+        <a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/stumbleupon.png'; ?>' id='stumbleupon'></a>
+		<?php
+		}
 		echo "</div>";
 
 	}
-	add_shortcode( 'floatingsocial', 'custom_shortcode' ); //floatingsocial shortcode
+	add_shortcode( 'floatingsocial', 'floatingsocial_shortcode' ); //floatingsocial shortcode
 
 	if( is_admin() )
-    $my_settings_page = new MySettingsPage();
+    $my_settings_page = new FloatingSocialPage();
 
 // add css file for admin-dashboard pages
-	function load_custom_wp_admin_style() {
+	function floatingsocial_admin_style() {
 			wp_register_style( 'custom_wp_admin_css',  plugins_url( 'css/admin-style.css', __FILE__ ), false, '1.0.0' );
 			wp_enqueue_style( 'custom_wp_admin_css' );
 	}
-	add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
-	function themeslug_enqueue_style() {
+	add_action( 'admin_enqueue_scripts', 'floatingsocial_admin_style' );
+	
+	function floatingsocial_enqueue_style() {
 		wp_enqueue_style( 'core', plugins_url( 'css/plugin_style.css', __FILE__ ), false ); 
 	}
-	add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_style' ); //'wp_enqueue_scripts' is used for enqueuing both scripts and styles.
+	add_action( 'wp_enqueue_scripts', 'floatingsocial_enqueue_style' ); //'wp_enqueue_scripts' is used for enqueuing both scripts and styles.
 
 	//plugin activation hook
 	register_activation_hook( __FILE__, array( 'Floating-social', 'plugin_activation' ) );
