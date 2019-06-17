@@ -167,13 +167,6 @@ class FloatingSocialPage
             'setting_section_id'
         );
 		
-		
-		
-		
-		
-		
-		
-		
     }
 
     /**
@@ -196,23 +189,21 @@ class FloatingSocialPage
 		if( isset( $input['youtube'] ) )
             $new_input['youtube'] = sanitize_text_field( $input['youtube'] );
 		 if( isset( $input['stumbleupon'] ) )
-            $new_input['stumbleupon'] = sanitize_text_field( $input['stumbleupon'] ); 
-			
-			
-			 if( isset( $input['instagram'] ) )
+            $new_input['stumbleupon'] = sanitize_text_field( $input['stumbleupon'] ); 			
+		 if( isset( $input['instagram'] ) )
             $new_input['instagram'] = sanitize_text_field( $input['instagram'] );
-			  if( isset( $input['tumblr'] ) )
+		 if( isset( $input['tumblr'] ) )
             $new_input['tumblr'] = sanitize_text_field( $input['tumblr'] );
-			  if( isset( $input['rss'] ) )
+	     if( isset( $input['rss'] ) )
             $new_input['rss'] = sanitize_text_field( $input['rss'] ); 
-			 if( isset( $input['flickr'] ) )
+		 if( isset( $input['flickr'] ) )
             $new_input['flickr'] = sanitize_text_field( $input['flickr'] ); 
-			 if( isset( $input['googleplus'] ) )
+		 if( isset( $input['googleplus'] ) )
             $new_input['googleplus'] = sanitize_text_field( $input['googleplus'] );  
-			if( isset( $input['vine'] ) )
+		 if( isset( $input['vine'] ) )
             $new_input['vine'] = sanitize_text_field( $input['vine'] ); 
 			
-			 return $new_input;
+		 return $new_input;
     }
 
     /** 
@@ -446,8 +437,7 @@ class FloatingSocialPage
 	add_shortcode( 'floatingsocial', 'floatingsocial_shortcode' ); //floatingsocial shortcode
 
 	if( is_admin() )
-    $my_settings_page = new FloatingSocialPage();
-	
+    $my_settings_page = new FloatingSocialPage();	
 
 // add css file for admin-dashboard pages
 	function floatingsocial_admin_style() {
