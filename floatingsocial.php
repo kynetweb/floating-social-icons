@@ -50,15 +50,19 @@ class FloatingSocialPage
 					// Set class property
 					$this->options = get_option( 'my_option_name' ); // Retrieves an option value based on an option name.
 					?>
-        		<div class="wrap">
+        		<div class="fsm-wrap-plugin">
                   <!--  <h1>Awsome Social Icons</h1>-->
                     <form method="post" action="options.php">
+           
                     <?php
                         // This prints out all hidden setting fields
                         settings_fields( 'my_option_group' ); //Output action, and option_page fields for a settings page
-                        do_settings_sections( 'my-setting-admin' ); //Prints out all settings sections added to a particular settings page.
+                        echo "  <div class = 'fsm-setting-style'>";
+						do_settings_sections( 'my-setting-admin' );
+						echo "</div>"; //Prints out all settings sections added to a particular settings page.
                         submit_button(); //Echos a submit button only used in backend not frontend
                     ?>
+                    
                     </form>
                 </div>
         <?php
@@ -125,6 +129,51 @@ class FloatingSocialPage
             'setting_section_id'
         );
 		
+		 add_settings_field(
+            'instagram', 
+            'Instagram', 
+            array( $this, 'instagram_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); add_settings_field(
+            'tumblr', 
+            'Tumblr', 
+            array( $this, 'tumblr_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); add_settings_field(
+            'rss', 
+            'Rss', 
+            array( $this, 'rss_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); add_settings_field(
+            'flickr', 
+            'Flickr', 
+            array( $this, 'flickr_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); add_settings_field(
+            'googleplus', 
+            'Google Plus', 
+            array( $this, 'googleplus_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); add_settings_field(
+            'vine', 
+            'Vine', 
+            array( $this, 'vine_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        );
+		
+		
+		
+		
+		
+		
+		
+		
     }
 
     /**
@@ -148,6 +197,21 @@ class FloatingSocialPage
             $new_input['youtube'] = sanitize_text_field( $input['youtube'] );
 		 if( isset( $input['stumbleupon'] ) )
             $new_input['stumbleupon'] = sanitize_text_field( $input['stumbleupon'] ); 
+			
+			
+			 if( isset( $input['instagram'] ) )
+            $new_input['instagram'] = sanitize_text_field( $input['instagram'] );
+			  if( isset( $input['tumblr'] ) )
+            $new_input['tumblr'] = sanitize_text_field( $input['tumblr'] );
+			  if( isset( $input['rss'] ) )
+            $new_input['rss'] = sanitize_text_field( $input['rss'] ); 
+			 if( isset( $input['flickr'] ) )
+            $new_input['flickr'] = sanitize_text_field( $input['flickr'] ); 
+			 if( isset( $input['googleplus'] ) )
+            $new_input['googleplus'] = sanitize_text_field( $input['googleplus'] );  
+			if( isset( $input['vine'] ) )
+            $new_input['vine'] = sanitize_text_field( $input['vine'] ); 
+			
 			 return $new_input;
     }
 
@@ -236,6 +300,39 @@ class FloatingSocialPage
         );
     }
 	
+	public function tumblr_callback()
+    {
+        printf(
+            '<input type="text" id="tumblr" name="my_option_name[tumblr]" value="%s" />',
+            isset( $this->options['tumblr'] ) ? esc_attr( $this->options['tumblr']) : ''
+        );
+    }public function rss_callback()
+    {
+        printf(
+            '<input type="text" id="rss" name="my_option_name[rss]" value="%s" />',
+            isset( $this->options['rss'] ) ? esc_attr( $this->options['rss']) : ''
+        );
+    }public function flickr_callback()
+    {
+        printf(
+            '<input type="text" id="flickr" name="my_option_name[flickr]" value="%s" />',
+            isset( $this->options['flickr'] ) ? esc_attr( $this->options['flickr']) : ''
+        );
+    }public function googleplus_callback()
+    {
+        printf(
+            '<input type="text" id="googleplus" name="my_option_name[googleplus]" value="%s" />',
+            isset( $this->options['googleplus'] ) ? esc_attr( $this->options['googleplus']) : ''
+        );
+    }public function vine_callback()
+    {
+        printf(
+            '<input type="text" id="vine" name="my_option_name[vine]" value="%s" />',
+            isset( $this->options['vine'] ) ? esc_attr( $this->options['vine']) : ''
+        );
+    }
+	
+	
 		
 }
 
@@ -243,59 +340,114 @@ class FloatingSocialPage
 
 	// Add Shortcode
 	function floatingsocial_shortcode() {
-		echo "<div class='option'>";		
+		echo "<div class='fsm-option'>";		
 		$options = get_option('my_option_name');		
 		$favebook__value = $options['facebook'];
 		$linkedin_value = $options['linkedin'];
 		$pintrest_value = $options['pinterest'];
 		$twitter_value = $options['twitter'];
 		$youtube_value = $options['youtube'];
-		$stumble_value = $options['stumbleupon'];
+		$stumble_value = $options['stumbleupon'];		
+		$insta_value = $options['instagram'];
+		$tumblr_value = $options['tumblr'];
+		$rss_value = $options['rss'];
+		$flickr_value = $options['flickr'];
+		$googleplus_value = $options['googleplus'];
+		$vine_value = $options['vine'];
 		
-	if($favebook__value == true)
+		
+	
+	if(!empty($favebook__value))
 	{	
 	 ?>
      
 		<a href="<?php echo $favebook__value?>"><img src= '<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/fb.png'; ?>' id='fb'></a>
 		<?php }
-		if($linkedin_value == true)
+		if(!empty($linkedin_value))
+		
 	{	
 		?>
         <a href="<?php echo $linkedin_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/in.png'; ?>' id='link'></a>
 		
         <?php } 
-		if($pintrest_value == true) 
-		{
+		if(!empty($pintrest_value))
+	{
 		?>
         
         <a href="<?php echo $pintrest_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/pinit.png'; ?>' id='pin'></a>
 		<?php }
-			if($twitter_value == true) 
+		if(!empty($twitter_value))
+			
 		{
 		?>
         <a href="<?php echo $twitter_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tw.png'; ?>' id='twitr'></a>
 		<?php
 		}
-		if($youtube_value == true) 
+		if(!empty($youtube_value))
+		
 		{
 		?>
        
        <a href="<?php echo $youtube_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/youtube.png'; ?>' id='youtube'></a>
 		<?php
 		}
-		if($stumble_value == true) 
+		if(!empty($stumble_value))
+		
 		{
 		?>
         <a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/stumbleupon.png'; ?>' id='stumbleupon'></a>
 		<?php
 		}
-		echo "</div>";
+		if(!empty($insta_value))
+		 
+		{
+		?>
+        <a href="<?php echo $insta_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/insta.png'; ?>' id='insta'></a>
+		<?php
+		}
+		if(!empty($tumblr_value))
+		
+		{
+		?>
+        <a href="<?php echo $tumblr_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tumblr.png'; ?>' id='tumblr'></a>
+		<?php
+		}
+			if(!empty($rss_value))
+		
+		{
+		?>
+        <a href="<?php echo $rss_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/rss.png'; ?>' id='rss'></a>
+		<?php
+		}
+		if(!empty($flickr_value))
+		
+		{
+		?>
+        <a href="<?php echo $flickr_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/flickr.png'; ?>' id='flickr'></a>
+		<?php
+		}
+		if(!empty($googleplus_value))
+		
+		{
+		?>
+        <a href="<?php echo $googleplus_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/googleplus.png'; ?>' id='googleplus'></a>
+		<?php
+		}
+		if(!empty($vine_value))
+		
+		{
+		?>
+        <a href="<?php echo $vine_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/vine.png'; ?>' id='vine'></a>
+		<?php
+		}
+	echo "</div>";
 
 	}
 	add_shortcode( 'floatingsocial', 'floatingsocial_shortcode' ); //floatingsocial shortcode
 
 	if( is_admin() )
     $my_settings_page = new FloatingSocialPage();
+	
 
 // add css file for admin-dashboard pages
 	function floatingsocial_admin_style() {
@@ -305,7 +457,7 @@ class FloatingSocialPage
 	add_action( 'admin_enqueue_scripts', 'floatingsocial_admin_style' );
 	
 	function floatingsocial_enqueue_style() {
-		wp_enqueue_style( 'core', plugins_url( 'css/plugin_style.css', __FILE__ ), false ); 
+		wp_enqueue_style( 'core', plugins_url( 'css/plugin_style.css', __FILE__ ), false, '1.0.0' ); 
 	}
 	add_action( 'wp_enqueue_scripts', 'floatingsocial_enqueue_style' ); //'wp_enqueue_scripts' is used for enqueuing both scripts and styles.
 

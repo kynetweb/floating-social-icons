@@ -1,12 +1,13 @@
 //css file of floating social share plugin
 
 
-
-
-table.form-table tr {
-    float: left;
-}
-tr {
+.fsm-wrap-plugin tr {
     float: left !important;
 	width: 50% !important;
+}
+.fsm-setting-style .form-table tr {
+    width: 50%;
+    overflow: hidden;
+    display: block;
+    float: left;
 }
