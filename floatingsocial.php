@@ -200,9 +200,8 @@ class FloatingSocialPage
             $new_input['flickr'] = sanitize_text_field( $input['flickr'] ); 
 		 if( isset( $input['googleplus'] ) )
             $new_input['googleplus'] = sanitize_text_field( $input['googleplus'] );  
-		 if( isset( $input['vine'] ) )
+		if( isset( $input['vine'] ) )
             $new_input['vine'] = sanitize_text_field( $input['vine'] ); 
-			
 		 return $new_input;
     }
 
@@ -352,26 +351,26 @@ class FloatingSocialPage
 	{	
 	 ?>
      
-		<a href="<?php echo $favebook__value?>"><img src= '<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/fb.png'; ?>' id='fb'></a>
+		<a href="<?php echo $favebook__value?>"><img src= '<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/fb.png'; ?>' id='fb'></a>
 		<?php }
 		if(!empty($linkedin_value))
 		
 	{	
 		?>
-        <a href="<?php echo $linkedin_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/in.png'; ?>' id='link'></a>
+        <a href="<?php echo $linkedin_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/in.png'; ?>' id='link'></a>
 		
         <?php } 
 		if(!empty($pintrest_value))
 	{
 		?>
         
-        <a href="<?php echo $pintrest_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/pinit.png'; ?>' id='pin'></a>
+        <a href="<?php echo $pintrest_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/pinit.png'; ?>' id='pin'></a>
 		<?php }
 		if(!empty($twitter_value))
 			
 		{
 		?>
-        <a href="<?php echo $twitter_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/tw.png'; ?>' id='twitr'></a>
+        <a href="<?php echo $twitter_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tw.png'; ?>' id='twitr'></a>
 		<?php
 		}
 		if(!empty($youtube_value))
@@ -379,56 +378,56 @@ class FloatingSocialPage
 		{
 		?>
        
-       <a href="<?php echo $youtube_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/youtube.png'; ?>' id='youtube'></a>
+       <a href="<?php echo $youtube_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/youtube.png'; ?>' id='youtube'></a>
 		<?php
 		}
 		if(!empty($stumble_value))
 		
 		{
 		?>
-        <a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/su.png'; ?>' id='stumbleupon'></a>
+        <a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/su.png'; ?>' id='stumbleupon'></a>
 		<?php
 		}
 		if(!empty($insta_value))
 		 
 		{
 		?>
-        <a href="<?php echo $insta_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/insta.png'; ?>' id='insta'></a>
+        <a href="<?php echo $insta_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/insta.png'; ?>' id='insta'></a>
 		<?php
 		}
 		if(!empty($tumblr_value))
 		
 		{
 		?>
-        <a href="<?php echo $tumblr_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/tumblr.png'; ?>' id='tumblr'></a>
+        <a href="<?php echo $tumblr_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/tumblr.png'; ?>' id='tumblr'></a>
 		<?php
 		}
 			if(!empty($rss_value))
 		
 		{
 		?>
-        <a href="<?php echo $rss_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/rss.png'; ?>' id='rss'></a>
+        <a href="<?php echo $rss_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/rss.png'; ?>' id='rss'></a>
 		<?php
 		}
 		if(!empty($flickr_value))
 		
 		{
 		?>
-        <a href="<?php echo $flickr_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/flickr.png'; ?>' id='flickr'></a>
+        <a href="<?php echo $flickr_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/flickr.png'; ?>' id='flickr'></a>
 		<?php
 		}
 		if(!empty($googleplus_value))
 		
 		{
 		?>
-        <a href="<?php echo $googleplus_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/googleplus.png'; ?>' id='googleplus'></a>
+        <a href="<?php echo $googleplus_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/googleplus.png'; ?>' id='googleplus'></a>
 		<?php
 		}
 		if(!empty($vine_value))
 		
 		{
 		?>
-        <a href="<?php echo $vine_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/vine.png'; ?>' id='vine'></a>
+        <a href="<?php echo $vine_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/vine.png'; ?>' id='vine'></a>
 		<?php
 		}
 	echo "</div>";
@@ -437,7 +436,8 @@ class FloatingSocialPage
 	add_shortcode( 'floatingsocial', 'floatingsocial_shortcode' ); //floatingsocial shortcode
 
 	if( is_admin() )
-    $my_settings_page = new FloatingSocialPage();	
+    $my_settings_page = new FloatingSocialPage();
+	
 
 // add css file for admin-dashboard pages
 	function floatingsocial_admin_style() {
