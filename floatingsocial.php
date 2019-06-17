@@ -210,7 +210,7 @@ class FloatingSocialPage
      */
     public function print_section_info()
     {
-        print 'Enter the URL(s) for your social profiles below.If yout leave a profile URL field Blank, it will not be used.';
+        print 'Enter the URL(s) for your social profiles below.If yout leave a profile URL field Blank, it will not be used.You can use this plugin by using [floatingsocial] shortcode.';
     }
 
     /** 
