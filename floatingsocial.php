@@ -420,14 +420,14 @@ class FloatingSocialPage
 		
 		{
 		?>
-        <a href="<?php echo $googleplus_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/googleplus.png'; ?>' id='googleplus'></a>
+        <a href="<?php echo $googleplus_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/googleplus.png'; ?>' id='googleplus'></a>
 		<?php
 		}
 		if(!empty($vine_value))
 		
 		{
 		?>
-        <a href="<?php echo $vine_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/vine.png'; ?>' id='vine'></a>
+        <a href="<?php echo $vine_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/vine.png'; ?>' id='vine'></a>
 		<?php
 		}
 	echo "</div>";
