@@ -501,7 +501,6 @@ function floatingsocial_all_pages() {
 echo "</div>";
 
 }
-
 add_action('wp_head', 'floatingsocial_all_pages');
 
 	// Add Shortcode
