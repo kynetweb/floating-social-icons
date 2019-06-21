@@ -568,7 +568,7 @@ function floatingsocial_all_pages() {
 		
 		{
 		?>
-        <a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floatingsocial/image/su.png'; ?>' id='stumbleupon'></a>
+        <a href="<?php echo $stumble_value?>"><img src='<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'floating-social-icons-master/image/su.png'; ?>' id='stumbleupon'></a>
 		<?php
 		}
 		if(!empty($insta_value))
