@@ -493,6 +493,7 @@ class FloatingSocialPage
 				    top: 14%;
 					position: fixed;						
 					left: 98%;
+					z-index: 9999;
 			}
    		 </style>
 		<?php }
@@ -621,7 +622,7 @@ function floatingsocial_all_pages() {
 			   .fsm-option {
 				top: 14%;
 				position: sticky;
-			   
+			    z-index: 9999;
 				float: right;
 			}
    		 </style>
