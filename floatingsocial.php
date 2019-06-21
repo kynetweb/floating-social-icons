@@ -489,11 +489,11 @@ class FloatingSocialPage
 		if($drop_down_value == 'Right'){
 		?>
 			 <style type="text/css">
-			   .fsm-option {
-				    top: 14%;
-					position: fixed;						
-					left: 98%;
-					z-index: 9999;
+			    .fsm-option {
+				top: 20%;
+				position: fixed;						
+				left: 96%;
+				z-index: 9999;
 			}
    		 </style>
 		<?php }
@@ -620,10 +620,10 @@ function floatingsocial_all_pages() {
         
 			 <style type="text/css">
 			   .fsm-option {
-				top: 14%;
-				position: sticky;
-			    z-index: 9999;
-				float: right;
+				top: 20%;
+				position: fixed;						
+				left: 96%;
+				z-index: 9999;
 			}
    		 </style>
 		<?php }
