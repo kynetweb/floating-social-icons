@@ -490,9 +490,9 @@ class FloatingSocialPage
 		?>
 			 <style type="text/css">
 			   .fsm-option {
-				top: 14%;
-				position: sticky;			   
-				float: right;
+				    top: 14%;
+					position: fixed;						
+					left: 98%;
 			}
    		 </style>
 		<?php }
